@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../index.css';
+import '../../index.css';
+import { Table } from './Table.styled';
+import { TableHead } from './TableHead.styled';
+import { Type } from './Type.styled';
+import { Row } from './Row.styled';
+import { Amount } from './Amount.styled';
+import { Currency } from './Currency.styled';
 
 export const TransactionHistory = ({ items }) => (
-  <table className="transaction-history">
-    <thead>
+  <Table className="transaction-history">
+    <TableHead>
       <tr>
         <th>Type</th>
         <th>Amount</th>
         <th>Currency</th>
       </tr>
-    </thead>
+    </TableHead>
     <tbody>
       {items.map(({ id, type, amount, currency }) => (
-        <tr key={id}>
-          <td>{type}</td>
-          <td>{amount}</td>
-          <td>{currency}</td>
-        </tr>
+        <Row key={id}>
+          <Type>{type}</Type>
+          <Amount>{amount}</Amount>
+          <Currency>{currency}</Currency>
+        </Row>
       ))}
     </tbody>
-  </table>
+  </Table>
 );
 
 TransactionHistory.prototypes = {

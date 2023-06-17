@@ -1,9 +1,9 @@
 import React from 'react';
 import '../index.css';
-import { Profile } from './Profile';
-import { Statistics } from './Statistics';
-import { FriendList } from './FriendList';
-import { TransactionHistory } from './TransactionHistory';
+import { Profile } from './Profile/Profile';
+import { Statistics } from './Statistics/Statistics';
+import { FriendList } from './FriendList/FriendList';
+import { TransactionHistory } from './TransactionHistory/TransactionHistory';
 import user from '../path/user.json';
 import data from '../path/data.json';
 import friends from '../path/friends.json';
@@ -20,9 +20,9 @@ export const App = () => {
         stats={user.stats}
       />
       <Statistics title="Upload stats" stats={data} />
-      <Statistics stats={data} />
-      <FriendList friends={friends} />;
-      <TransactionHistory items={transactions} />;
+      {/* <Statistics stats={data} /> */}
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
     </div>
   );
 };

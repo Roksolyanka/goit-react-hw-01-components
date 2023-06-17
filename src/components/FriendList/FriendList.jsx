@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../index.css';
+import '../../index.css';
+import { Friends } from './Friends.styled';
+import { Status } from './Status.styled';
+import { Friend } from './Friend.styled';
+import { Name } from './Name.styled';
 
 export const FriendList = ({ friends }) => (
-  <ul className="friend-list">
+  <Friends className="friend-list">
     {friends.map(({ id, avatar, name, isOnline }) => (
       <FriendListItem
         key={id}
@@ -12,15 +16,18 @@ export const FriendList = ({ friends }) => (
         isOnline={isOnline}
       />
     ))}
-  </ul>
+  </Friends>
 );
 
 const FriendListItem = ({ avatar, name, isOnline }) => (
-  <li className="item">
-    <span className={`status ${isOnline ? 'online' : 'offline'}`}></span>
+  <Friend className="item">
+    <Status
+      isOnline={isOnline}
+      className={isOnline ? 'true' : 'false'}
+    ></Status>
     <img className="avatar" src={avatar} alt="User avatar" width="48" />
-    <p className="name">{name}</p>
-  </li>
+    <Name className="name">{name}</Name>
+  </Friend>
 );
 
 FriendList.propTypes = {
